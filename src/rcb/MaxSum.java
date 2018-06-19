@@ -2,9 +2,9 @@ package rcb;
 
 class MaxSum {
 
-    static int sums = 0;
+    static long sums = 0;
 
-    static int comparisons = 0;
+    static long comparisons = 0;
 
     static int bruteForce(int[] vector, int size) {
         int maxSoFar = 0;
