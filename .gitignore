@@ -55,3 +55,6 @@ fabric.properties
 
 /.idea/
 *.iml
+*.xml
+*.mf
+/nbproject/
