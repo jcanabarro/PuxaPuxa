@@ -18,8 +18,10 @@ public class Main {
                 vector[i] = Integer.parseInt(sc.nextLine());
             }
 
-            int res = MaxSum.bruteForce(vector, size);
-            System.out.println(res);
+            int resBrute = MaxSum.bruteForce(vector, size);
+            int resDivide = MaxSum.divideAndConquer(vector, 0, size - 1);
+            System.out.println("Brute Force: " + resBrute);
+            System.out.println("Divide and Conquer: " + resDivide);
         } else {
             System.err.println("\uD83C\uDFB7 Invalid parameters.");
         }
