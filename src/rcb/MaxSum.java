@@ -2,6 +2,10 @@ package rcb;
 
 class MaxSum {
 
+    static int sums = 0;
+
+    static int comparisons = 0;
+
     static int bruteForce(int[] vector, int size) {
         int maxSoFar = 0;
         for (int i = 0; i < size; ++i) {
@@ -9,8 +13,10 @@ class MaxSum {
                 int sum = 0;
                 for (int k = i; k <= j; ++k) {
                     sum += vector[k];
+                    sums++;
                 }
                 maxSoFar = Math.max(maxSoFar, sum);
+                comparisons++;
             }
         }
 
@@ -25,16 +31,20 @@ class MaxSum {
         for (int i = m; i >= startIndex; --i) {
             sum += vector[i];
             lMax = Math.max(lMax, sum);
+            sums++;
+            comparisons++;
         }
         sum = 0;
         for (int i = m + 1; i <= endIndex; ++i) {
             sum += vector[i];
             rMax = Math.max(rMax, sum);
+            sums++;
+            comparisons++;
         }
 
         int maxA = Math.max(lMax + rMax, divideAndConquer(vector, startIndex, m));
-        int maxB = Math.max(maxA, divideAndConquer(vector, m + 1, endIndex));
+        comparisons += 2;
 
-        return maxB;
+        return Math.max(maxA, divideAndConquer(vector, m + 1, endIndex));
     }
 }
