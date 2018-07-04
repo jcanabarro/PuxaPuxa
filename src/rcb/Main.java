@@ -25,8 +25,6 @@ public class Main {
 
         Boolean bruteForce = false;
 
-        Boolean divideAndConquer = false;
-
         if (args.length == 2) {
             switch (args[1]) {
                 case BRUTE_FORCE:
@@ -59,7 +57,7 @@ public class Main {
             for (int i = 0; i < size; i++) {
                 vector[i] = Integer.parseInt(sc.nextLine());
             }
-            int res = bruteForce ? MaxSum.bruteForce(vector, size) : MaxSum.divideAndConquer(vector, 0, size - 1);
+            long res = bruteForce ? MaxSum.bruteForce(vector, size) : MaxSum.divideAndConquer(vector, 0, size - 1);
             System.out.println(j + "\t" + res + "\t" + MaxSum.sums + "\t" + MaxSum.comparisons + "\t" + (MaxSum.comparisons + MaxSum.sums));
         }
     }
